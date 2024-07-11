@@ -1,7 +1,9 @@
-import {ref} from 'vue'
 <script setup lang="ts">
+import { ref } from 'vue'
+import Event from '@/types/Event'
+
 defineProps<{
-  msg: string
+ event: Event
 }>()
 // const event = ref({
 //   id: 5928101,
@@ -18,11 +20,13 @@ defineProps<{
 
 <template>
   <div class="event-class">
-    <div class="event-cart">
+    <div class="event-card">
       <h2>{{ event.title }} </h2>
       <span>@{{ event.time }}on {{ event.date }}</span>
     </div>
   </div>
+  
+
 </template>
 
 <style scoped>
