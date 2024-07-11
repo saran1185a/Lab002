@@ -1,53 +1,21 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
 import Event from '@/types/Event'
-import { ref } from 'vue'
-const events = ref<Event[]>([
-  {
-    id: 5928101,
-    categort: 'animal welfare',
-    title: 'Cat Adoption day',
-    description:'Find your new feline friend at this event',
-    location:'Meow Town',
-    date:'January 28, 2022',
-    time:'12.00',
-    petsAllowed: true,
-    organizer:'Kat Laydee'
-  },
-  {
-    id: 4582797 ,
-    categort: 'food',
-    title: 'Community Gardening',
-    description:'Join us as we tend to the community edible plants.',
-    location:'Flora City',
-    date:'March 16, 2022',
-    time:'10:00',
-    petsAllowed: true,
-    organizer:'Fern Pollin'
-  },
-  {
-    id: 8419988,
-    categort: 'sustainability',
-    title: 'Beach Cleanup',
-    description:'Help pick up trash along the shore',
-    location:'Playa Del Carmen',
-    date:'July 22,2022',
-    time:'11.00',
-    petsAllowed: false,
-    organizer:'Carey Wales'
-  },
-  {
-    id: 678584,
-    categort: 'student',
-    title: 'HI ',
-    description:'Hello',
-    location:'CNX',
-    date:'Jan 23, 2003',
-    time:'00.00',
-    petsAllowed: false,
-    organizer:'Ksne Wales'
-  }
-])
+import { ref , onMounted } from 'vue'
+import axios from 'axios'
+
+const events = ref<Event[]>(null)
+
+onMounted(() => {
+  axios
+    .get('http://my-json-server.typicode.com/saran1185a/databaseForLab2/events')
+    .then((response) =>{
+      events.value=response.data
+    })
+    .catch((error) => {
+      console.error('There was an error!', error)
+    })
+})
 </script>
 
 <template>
