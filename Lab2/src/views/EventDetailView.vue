@@ -6,13 +6,13 @@ const event = ref<Event>(null)
 const id = ref<number> (5928101)
 
 onMounted(() => {
-    EventService.getEvent (id.value)
-    .then ((response) =>{
-        event.value = response.data
+    EventService.getEvent(id.value)
+    .then((response) => {
+        event.value = response.data;
     })
-    .catch ((error) => {
-        console.error('There was an error!',error)
-    })
+    .catch((error) => {
+        console.error('There was an error!', error);
+    });
 })
 </script>
 <template>
