@@ -7,6 +7,7 @@ import EventRegisterView from '@/views/event/EditView.vue'
 import EventEditView from '@/views/event/RegisterView.vue'
 import EventLayoutView from '@/views/event/LayoutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import NetworkErrorView from '@/views/NetworkErrorView.vue'
 
 
 const router = createRouter({
@@ -67,7 +68,12 @@ const router = createRouter({
       path: '/student',
       name: 'student',
       component: StudentView
-    }
+    },
+    {
+      path: '/network-error',
+      name: 'network-error-view',
+      component: NetworkErrorView
+    },
   ]
 })
 
