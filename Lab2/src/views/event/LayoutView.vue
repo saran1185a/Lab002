@@ -24,15 +24,11 @@ onMounted(() => {
     <div v-if = "event">
         <h1>{{ event.title }}</h1>
         <nav>
-            <Rrouter-link :to="{name: 'event-detail-view', params: {id}
-        }">Details</Rrouter-link>
+            <Rrouter-link :to="{name: 'event-detail-view'}">Details</Rrouter-link>
             |
-            <Rrouter-link :to="{name: 'event-register-view', params: {id}
-        }">Register</Rrouter-link>
+            <Rrouter-link :to="{name: 'event-register-view'}">Register</Rrouter-link>
             |
-            <Rrouter-link :to="{name: 'event-edit-view', params: {id}
-        }">Edit</Rrouter-link>
-
+            <Rrouter-link :to="{name: 'event-edit-view'}">Edit</Rrouter-link>
         </nav>
        <RouterView :event="event" />
     </div>
